@@ -24,8 +24,8 @@ class pokemonsTableSeeder extends Seeder
             '伽勒爾',
             '洗翠和帕底亞',
         );
-        $randomIndex = array_rand($region); // 随机选择一个索引
-        return $region[$randomIndex]; // 使用随机索引获取地区名
+        $randomIndex = array_rand($region); 
+        return $region[$randomIndex];
     }
     public function pokemonRandomname (){
         $name = array(
@@ -100,8 +100,8 @@ class pokemonsTableSeeder extends Seeder
                                                                  '鐵甲貝', '鬼斯', '鬼斯通', '鬼斯通大王',
                                                                   '耿鬼', '大岩蛇'
         );
-        $randomIndex = array_rand($name); // 随机选择一个索引
-        return $name[$randomIndex]; // 使用随机索引获取 Pokemon 名称
+        $randomIndex = array_rand($name); 
+        return $name[$randomIndex]; 
     }
 
     public function pokemonRandomability ()
@@ -277,8 +277,8 @@ class pokemonsTableSeeder extends Seeder
 '幻覺',
 '發光',
 ) ;
-$randomIndex = array_rand($ability); // 随机选择一个索引
-return $ability[$randomIndex]; // 使用随机索引获取特性
+$randomIndex = array_rand($ability); 
+return $ability[$randomIndex]; 
     }
     public function run()
     {
@@ -286,7 +286,7 @@ return $ability[$randomIndex]; // 使用随机索引获取特性
             $name = $this->pokemonRandomname();
             $region = $this->pokemonRandomreregion();
             $generateRandomability = $this->pokemonRandomability();
-    
+            $genderOptions = ['男', '女', '男女'];
             $random_datetime = now();
     
             DB::table('pokemons')->insert([
@@ -296,7 +296,7 @@ return $ability[$randomIndex]; // 使用随机索引获取特性
                 'tid2' => rand(1, 25),
                 'height' => rand(50, 300),
                 'weight' => rand(50, 100),
-                'gender' => rand(0, 1) == 0 ? '男' : '女', // 随机选择 '男' 或 '女'
+                'gender' => $genderOptions[rand(0, 2)],
                 'ability' => $generateRandomability,
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
