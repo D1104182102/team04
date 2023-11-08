@@ -39,9 +39,10 @@ class TypesTableSeeder extends Seeder
                 $superEffectiveTypes = $this->generateRandomTypes($types, $type, 5);
                 $notVeryEffectiveTypes = $this->generateRandomTypes($types, $type, 7);
                 $randomNotEffective = $this->generateRandomTypes($types, $type, 3);
-                
+                $typess = $this->generateRandomTypes($types, $type, 4);
+
                 DB::table('types')->insert([
-                    'types' => $type ?? '',
+                    'types' => $typess[0] ?? '',
                     'super_effective1' => $superEffectiveTypes[0] ?? '',
                     'super_effective2' => $superEffectiveTypes[1] ?? '',
                     'super_effective3' => $superEffectiveTypes[2] ?? '',
