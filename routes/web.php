@@ -15,6 +15,10 @@ use App\Http\Controllers\typesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',function(){
+    return redirect('pokemons');
+});
+
 
 Route::get('pokemons', [pokemonsController::class, 'index'])->name('pokemons.index');
 

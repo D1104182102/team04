@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class pokemon extends Model
 {
+    protected $table = 'pokemons';
+    
     protected $fillable = [
         'pokemon',
         'tid1',

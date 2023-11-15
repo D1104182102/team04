@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\pokemon;
 
-class pokemonsController extends Controller
+class PokemonsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,8 @@ class pokemonsController extends Controller
      */
     public function index()
     {
-        //
+        return pokemon::all()->toArray();
     }
-
     /**
      * Show the form for creating a new resource.
      *

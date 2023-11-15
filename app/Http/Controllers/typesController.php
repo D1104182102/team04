@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\type;
 
 class typesController extends Controller
 {
@@ -14,6 +15,7 @@ class typesController extends Controller
     public function index()
     {
         //
+        return type::all()->toArray();
     }
 
     /**
