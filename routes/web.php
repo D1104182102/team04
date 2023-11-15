@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\pokemonsController;
+use App\Http\Controllers\typesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('pokemons', [pokemonsController::class, 'index'])->name('pokemons.index');
+
+Route::get('types', [typesController::class, 'index'])->name('types.index');
+   
